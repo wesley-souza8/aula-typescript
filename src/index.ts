@@ -80,6 +80,26 @@ Exercício 4
 Crie uma interface genérica chamada Repositorio<T>, que tenha um método salvar(dado: T): void e um método obterTodos(): T[].
 Depois, crie uma implementação dessa interface para armazenar uma lista de usuários (com nome e email).
 */
+interface Repositorio<T> {
+    salvar(dado: T): void;
+    obterTodos(): T[];
+}
+
+class Usuario implements Repositorio<{ nome: string; email: string }> {
+    private usuarios: { nome: string; email: string }[] = [];
+    salvar(dado: { nome: string; email: string }): void {
+        this.usuarios.push(dado);
+    }
+    obterTodos(): { nome: string; email: string }[] {
+        return this.usuarios;
+    }
+}
+
+// Teste da implementação
+const pessoa = new Usuario();
+pessoa.salvar({ nome: "Wesley", email: "wesley@hotmail.com" });
+pessoa.salvar({ nome: "Eduardo", email: "eduardo@hotmail.com" });
+console.log("Lista de usuários:", pessoa.obterTodos());
 
 /*
 Exercício 5
