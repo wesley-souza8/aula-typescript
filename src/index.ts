@@ -107,8 +107,32 @@ Crie um Type Alias chamado RespostaServidor, que pode ser uma string ou um boole
 Depois, crie uma função chamada processarResposta que recebe um valor desse tipo e imprime uma mensagem no console dependendo do valor passado.
 */
 
+type RespostaServidor = string | boolean {
+    function resposta (resposta: RespostaServidor) {
+        console.log(`Respondendo o servidor com RespostaServidor: ${resposta}`)
+    }
+};
+
+
+
 /*
 Exercício 6
 Utilizando Intersection Types, crie um tipo EstudanteTrabalhador, que una as propriedades de um Estudante (nome e curso) e de um Trabalhador (empresa e cargo).
 Depois, crie um objeto que represente um estudante que também trabalha e exiba os dados no console.
 */
+
+type Pessoa = {
+    nome: string;
+    idade: number;
+};
+type Funcionario = {
+    cargo: string;
+    salario: number;
+};
+type FuncionarioDetalhado = Pessoa & Funcionario;
+const funcionario1: FuncionarioDetalhado = {
+    nome: "Carlos",
+    idade: 35,
+    cargo: "Engenheiro",
+    salario: 5000
+};
