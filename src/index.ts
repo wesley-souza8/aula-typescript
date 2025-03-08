@@ -21,3 +21,22 @@ class Carro {
 }
 const carro1 = new Carro("Toyota", "Corolla", 2022);
 console.log(carro1.detalhes());
+
+
+// Aula de 07/03/2025
+
+// Exercício 1
+interface Carros {
+    marca: string;
+    modelo: string;
+    ano: number;
+    motor?: string;
+}
+
+const meuCarro: Carros = {
+    marca: "yamaha",
+    modelo: "nmax",
+    ano: 2020
+};
+console.log(meuCarro)
+
